@@ -1,0 +1,35 @@
+<div class="card-wide">
+  <div class="card-category"><%= @restaurant.category %></div>
+  <div class="card-description">
+    <h2><%= @restaurant.name %></h2>
+    <p><%= @restaurant.address %></p>
+    <p><%= @restaurant.phone_number %></p>
+    </div>
+    <%= link_to 'Add a review', new_restaurant_review_path(@restaurant) %>
+
+</div>
+
+
+<div class="wrapper">
+<div class="container">
+  <div class="row">
+        <table>
+          <tr>
+            <th></th>
+            <th>Rating</th>
+          </tr>
+          <% @restaurant.reviews.each do |review| %>
+            <tr>
+            <td><%= review.content %></td>
+            <td>
+            <% "#{review.rating}".to_i.times do %>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <% end %>
+              </td>
+            </tr>
+          <% end %>
+          </table>
+  </div>
+</div>
+</div>
+<%= link_to 'Go back', restaurants_path %>

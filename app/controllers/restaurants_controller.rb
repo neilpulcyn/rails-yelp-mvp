@@ -17,7 +17,6 @@ class RestaurantsController < ApplicationController
   def create
     # we create the restaurant using strong params as a parameter to stop sneaky injection/hacking
     @restaurant = Restaurant.new(restaurant_params)
-    @restaurant.save
     if @restaurant.save
       redirect_to @restaurant, notice: 'Restaurant was successfully created.'
     else
